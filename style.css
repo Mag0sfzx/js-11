@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card{
+    margin: 40px;
+    height: 400px;
+    width: 300px;
+    background-color: rgb(244, 237, 223);
+    border-radius: 20px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Ysabeau', sans-serif;
+    background-image: url(doodad.png);
+    background-position: center;
+    
+    
+}
+
+.content{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.card .top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card .top, .card .bottom{
+    height: 50%;
+    
+
+}
+.card .top .img{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(231, 241, 255);
+    border-radius: 10px;
+}
+.card .title, .card .description, .card .price{
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: rgba(240, 248, 255, 0.7);
+    border-radius: 20px;
+}

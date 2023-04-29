@@ -4,12 +4,17 @@ let listName = 'марго'
 
 let url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${listName}?key=${key}`
 
+let contentBlock = document.querySelector('.content')
+
 async function GetData(){
     let data = await fetch(url)
     let json = await data.json()
     //console.log(json)
     let convertedData = ConvertToObject(json.values)
     console.log(convertedData);
+    convertedData.forEach(function(element){
+        createBlock(element)
+    })
 }
 
 function ConvertToObject(jsonData){
@@ -27,4 +32,31 @@ function ConvertToObject(jsonData){
     return formatedList
 }
 
+
+function createBlock(item) {
+    let block = `<div class="card">
+                    <div class="top">
+                        <div class="img" style="background-image: url(${item.картинка})">
+                            <img src="" alt="...">
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <h1 c class="title">${item.Название}</h1>
+                        <p class="description">${item.цена}</p>
+                        <p class="price">${item.оценка}</p>
+                    </div>
+                </div>`
+                contentBlock.innerHTML += block
+}
+
 GetData()
+
+function dayNightTheme(){
+    let date = new Date()
+    let hour = date.getHours()
+    if (hour >= 7 && hour < 19) {
+       console.log('Day')
+    } else {
+        console.log('Night')
+    }
+}
